@@ -1,13 +1,41 @@
 import React from "react"
 
-//import Header from "./components/Header.js"
-//import MainContent from "./components/MainContent.js"
-//import Footer from "./components/Footer.js"
-//import Joke from "./components/Joke.js"
-//import TodoItem from "./components/TodoItem.js"
+//import Header from "./components/Header"
+//import MainContent from "./components/MainContent"
+//import Footer from "./components/Footer"
+//import Joke from "./components/Joke"
+import TodoItem from "./components/TodoItem"
+import todosData from "./components/todosData"
 //import productsData from "./components/vschoolProducts"
 //import Products from "./components/Products"
 
+//React State Practice 2 https://scrimba.com/p/p7P5Hd/cewRpUQ
+/*
+class App extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+            isLoggedIn: true
+        }
+    }
+    render(){
+        let wordDisplay
+        if (this.state.isLoggedIn === true) {
+            wordDisplay = "in"
+        }
+        else {
+            wordDisplay = "out"
+        }
+        return (
+            <div>
+                <h1>You are currently logged {wordDisplay}</h1>
+            </div>
+        )
+    }
+}
+*/
+
+/*
 class App extends React.Component {
     constructor() {
         super()
@@ -145,6 +173,8 @@ class App extends React.Component {
         )
     }
 }
+*/
+
 /*
 class App extends React.Component{
     render(){
@@ -227,18 +257,23 @@ function App() {
     )
 }
 */
-
-/*
-function App(){
-	return(
-		<div>
-			<TodoItem/>
-			<TodoItem/>
-			<TodoItem/>
-			<TodoItem/>
-		</div>
-	)
+//Todo App
+class App extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+            todos: todosData
+        }
+    } 
+    render() {
+        const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item}/>)
+        return (
+            <div className="todo-list">
+                {todoItems}
+            </div>
+        )
+    }
+    
 }
-*/
 
 export default App
